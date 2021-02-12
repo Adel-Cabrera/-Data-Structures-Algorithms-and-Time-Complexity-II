@@ -2,16 +2,18 @@ package datastructures;
 
 public class LinkedList {
 
-    public class Node {
+    public static class Node {
         int data;
         Node next;
 
         public Node(int data) {
             this.data = data;
         }
+        
     }
 
-    public Node head;
+    private Node head;
+    private int size;
 
     public void addFront(int data) {
 
@@ -29,6 +31,7 @@ public class LinkedList {
 
         // Set current head equal to this new head
         head = newNode;
+        size++;
     }
 
     public int getFirst() {
@@ -70,9 +73,10 @@ public class LinkedList {
 
         // Set current node to equal newNode
         current.next = newNode;
+        size++;
     }
 
-    public int size() {
+    public int size() { // brute force approach
 
         if (head == null) {
             return 0;
@@ -114,6 +118,7 @@ public class LinkedList {
             }
             current = current.next;
         }
+        size--;
     }
 
     public void print() {
